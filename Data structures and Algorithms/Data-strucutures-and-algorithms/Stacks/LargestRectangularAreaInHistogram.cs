@@ -14,16 +14,18 @@ namespace Data_strucutures_and_algorithms.Stacks
                 while (!stack.IsEmpty() && heights[stack.Peek()] >= heights[i])
                 {
                     var cur = stack.Pop();
-                    var res = cur * (stack.IsEmpty() ? i : i - stack.Peek() - 1);
+                    int width = stack.IsEmpty() ? i : i - stack.Peek() - 1;
+                    var res = heights[cur] * width;
                     max = Math.Max(max, res);
                 }
                 stack.Push(i);
             }
 
-            while (!stack.IsEmpty() && heights[stack.Peek()] >= heights[i])
+            while (!stack.IsEmpty())
             {
                 var cur = stack.Pop();
-                var res = cur * (stack.IsEmpty() ? heights.Length : heights.Length - stack.Peek() - 1);
+                int width = stack.IsEmpty() ? heights.Length : heights.Length - stack.Peek() - 1;
+                var res = heights[cur] * width;
                 max = Math.Max(max, res);
             }
             return max;
