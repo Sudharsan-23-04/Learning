@@ -1,6 +1,6 @@
 ﻿namespace SharedProject.Extension
 {
-    public static class StackExtension
+    public static class StackExtensions
     {
         public static bool IsEmpty<T>(this Stack<T> stack)
         {

@@ -1,6 +1,4 @@
-﻿using SharedProject.Extension;
-
-namespace Data_strucutures_and_algorithms.Stacks
+﻿namespace Data_strucutures_and_algorithms.Stacks
 {
     public partial class Stacks
     {

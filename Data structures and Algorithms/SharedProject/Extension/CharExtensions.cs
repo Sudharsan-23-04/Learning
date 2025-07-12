@@ -1,6 +1,6 @@
 ﻿namespace SharedProject.Extension
 {
-    public static class CharExtension
+    public static class CharExtensions
     {
         public static int ToInt(this char c)
         {
