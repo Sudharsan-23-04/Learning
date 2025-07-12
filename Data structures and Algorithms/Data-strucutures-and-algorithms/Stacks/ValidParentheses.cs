@@ -35,14 +35,14 @@ namespace Data_strucutures_and_algorithms.Stacks
             return stack.IsEmpty();
         }
 
-        private bool IsValidClosing(char c, Stack<char> stack)
+        public static bool IsValidClosing(char c, Stack<char> stack)
         {
             return (c == ')' && stack.Peek() == '(') ||
             (c == '}' && stack.Peek() == '{') ||
             (c == ']' && stack.Peek() == '[');
         }
 
-        private static bool IsOpenBracket(char c)
+        public static bool IsOpenBracket(char c)
         {
             return c is '[' or '{' or '(';
         }

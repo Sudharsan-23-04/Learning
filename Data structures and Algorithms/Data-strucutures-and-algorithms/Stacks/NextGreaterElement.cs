@@ -1,4 +1,6 @@
-﻿namespace Data_strucutures_and_algorithms.Stacks
+﻿using SharedProject.Extension;
+
+namespace Data_strucutures_and_algorithms.Stacks
 {
     public partial class Stacks
     {
@@ -15,13 +17,13 @@
                 int current = nums2[i];
 
                 // Maintain a decreasing stack
-                while (stack.Count > 0 && stack.Peek() <= current)
+                while (!stack.IsEmpty() && stack.Peek() <= current)
                 {
                     stack.Pop();
                 }
 
                 // If stack is not empty, the top is the next greater
-                nextGreaterMap[current] = stack.Count > 0 ? stack.Peek() : -1;
+                nextGreaterMap[current] = !stack.IsEmpty() ? stack.Peek() : -1;
 
                 stack.Push(current);
             }
