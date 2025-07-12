@@ -2,6 +2,7 @@
 {
     public partial class Stacks
     {
+        //https://leetcode.com/problems/maximal-rectangle/description/
         public static int MaximalRectangle(char[][] matrix)
         {
             if (matrix == null || matrix.Length == 0 || matrix[0].Length == 0)

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SharedProject.Extension
+﻿namespace SharedProject.Extension
 {
     public static class CharExtension
     {
         public static int ToInt(this char c)
         {
-            int.TryParse(c.ToString(), out var res);
+            _ = int.TryParse(c.ToString(), out int res);
             return res;
         }
     }

@@ -9,9 +9,10 @@ namespace Data_strucutures_and_algorithms.Stacks
 {
     public partial class Stacks
     {
-        public int Calculate(string s)
+        //https://leetcode.com/problems/basic-calculator/description/
+        public static int Calculate(string s)
         {
-            Stack<int> stack = new Stack<int>();
+            Stack<int> stack = new();
             int result = 0;
             int number = 0;
             int sign = 1;
