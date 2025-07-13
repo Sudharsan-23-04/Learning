@@ -5,7 +5,7 @@ namespace Data_strucutures_and_algorithms.Stacks
 {
     public partial class Stacks
     {
-        public bool IsValid(string s)
+        public static bool IsValid(string s)
         {
             Stack<char> stack = new();
             for (int i = 0; i < s.Length; i++)
