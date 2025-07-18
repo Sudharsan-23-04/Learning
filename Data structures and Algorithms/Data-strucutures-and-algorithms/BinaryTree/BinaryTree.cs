@@ -10,9 +10,9 @@ namespace Data_strucutures_and_algorithms.BinaryTree
     {
         public T Value { get; private set; }
 
-        public BinaryTree<T> Left { get; private set; }
+        public BinaryTree<T>? Left { get; private set; }
 
-        public BinaryTree<T> Right {  get; private set; }
+        public BinaryTree<T>? Right {  get; private set; }
 
         public BinaryTree(T value)
         {
@@ -31,5 +31,7 @@ namespace Data_strucutures_and_algorithms.BinaryTree
                 Right = right;
             }
         }
+
+        public bool IsLeaf => Left is null && Right is null;
     }
 }
