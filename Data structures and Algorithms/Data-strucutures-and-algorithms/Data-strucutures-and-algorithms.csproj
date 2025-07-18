@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharedProject\SharedProject.csproj" />
+    <Compile Remove="Queue\**" />
+    <EmbeddedResource Remove="Queue\**" />
+    <None Remove="Queue\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queue\" />
+    <ProjectReference Include="..\SharedProject\SharedProject.csproj" />
   </ItemGroup>
 
 </Project>
