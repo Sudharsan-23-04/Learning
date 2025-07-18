@@ -2,9 +2,9 @@
 {
     public static class Queue
     {
-        //public static Queue<T> Reverse<T>(Queue<T> queue)
-        //{
-            
-        //}
+        public static Queue<T> Reverse<T>(Queue<T> queue)
+        {
+
+        }
     }
 }
