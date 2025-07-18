@@ -11,6 +11,7 @@
 
 
             int leftValue = root.Left?.Value ?? 0;
+
             int rightValue = root.Right?.Value ?? 0;
 
             bool isChilderSumProperty = root.Value == leftValue + rightValue;

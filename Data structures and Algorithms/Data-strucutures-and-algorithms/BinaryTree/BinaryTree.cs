@@ -33,5 +33,11 @@ namespace Data_strucutures_and_algorithms.BinaryTree
         }
 
         public bool IsLeaf => Left is null && Right is null;
+
+        public void SwapChildren()
+        {
+            (Right, Left) = (Left, Right);
+        }
+
     }
 }
