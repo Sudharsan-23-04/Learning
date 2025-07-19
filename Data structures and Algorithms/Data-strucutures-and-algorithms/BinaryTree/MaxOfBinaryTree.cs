@@ -2,7 +2,7 @@
 {
     public partial class BinaryTreeProblem
     {
-        public static long GetMax(BinaryTree<long> root) 
+        public static long GetMax(BinaryTree<long>? root) 
         {
             if(root is null)
             {
