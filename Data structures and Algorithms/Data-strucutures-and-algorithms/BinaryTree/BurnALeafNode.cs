@@ -1,6 +1,4 @@
-﻿using SharedProject.Extension;
-
-namespace Data_strucutures_and_algorithms.BinaryTree
+﻿namespace Data_strucutures_and_algorithms.BinaryTree
 {
     public partial class BinaryTreeProblem
     {
