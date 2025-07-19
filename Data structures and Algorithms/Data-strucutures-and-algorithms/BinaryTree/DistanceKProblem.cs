@@ -4,47 +4,48 @@ namespace Data_strucutures_and_algorithms.BinaryTree
 {
     public partial class BinaryTreeProblem
     {
-        public class DistanceKProblem<T>
+        public static List<T> DistanceKFromTarget<T>(BinaryTree<T> root, BinaryTree<T> target, int distance)
         {
-            public List<T> DistanceKFromTarget(BinaryTree<T> root, BinaryTree<T> target, int distance)
+            if (root == null || target == null)
+                return [];
+
+            var nodeMap = TreeUtils.BuildNodeMap(root);
+
+            var queue = new Queue<(BinaryTree<T> Node, int Dist)>();
+            var visited = new HashSet<BinaryTree<T>>();
+            var result = new List<T>();
+
+            queue.Enqueue((target, 0));
+            visited.Add(target);
+
+            while (queue.Count > 0)
             {
-                if (root == null || target == null)
-                    return [];
+                var (current, dist) = queue.Dequeue();
 
-                var nodeMap = TreeUtils.BuildNodeMap(root);
-
-                var queue = new Queue<(BinaryTree<T> Node, int Dist)>();
-                var visited = new HashSet<BinaryTree<T>>();
-                var result = new List<T>();
-
-                queue.Enqueue((target, 0));
-                visited.Add(target);
-
-                while (queue.Count > 0)
+                if (dist == distance)
                 {
-                    var (current, dist) = queue.Dequeue();
-
-                    if (dist == distance)
-                    {
-                        result.Add(current.Value);
-                        continue;
-                    }
-
-                    if (!nodeMap.TryGetValue(current, out var neighbors))
-                        continue;
-
-                    foreach (var neighbor in neighbors)
-                    {
-                        if (neighbor == null || visited.Contains(neighbor))
-                            continue;
-
-                        visited.Add(neighbor);
-                        queue.Enqueue((neighbor, dist + 1));
-                    }
+                    result.Add(current.Value);
+                    continue;
                 }
 
-                return result;
+                if (!nodeMap.TryGetValue(current, out var neighbors))
+                    continue;
+
+                foreach (var neighbor in neighbors)
+                {
+                    if (neighbor is null || visited.Contains(neighbor))
+                        continue;
+
+                    visited.Add(neighbor);
+                    queue.Enqueue((neighbor, dist + 1));
+                }
             }
+
+            return result;
+        }
+        public class DistanceKProblem<T>
+        {
+            
         }
 
     }

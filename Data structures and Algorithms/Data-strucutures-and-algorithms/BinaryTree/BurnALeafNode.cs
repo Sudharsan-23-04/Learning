@@ -2,44 +2,40 @@
 {
     public partial class BinaryTreeProblem
     {
-
-        public class BurnALeafNode<T>
+        public static int BurnALeafNodeTime<T>(BinaryTree<T> root, BinaryTree<T> leaf)
         {
-            public int BurnALeafNodeTime(BinaryTree<T> root, BinaryTree<T> leaf)
+            ArgumentNullException.ThrowIfNull(root);
+            ArgumentNullException.ThrowIfNull(leaf);
+
+            var nodeMap = TreeUtils.BuildNodeMap(root);
+
+            var queue = new Queue<(BinaryTree<T> Node, int Time)>();
+            var visited = new HashSet<BinaryTree<T>>();
+
+            queue.Enqueue((leaf, 0));
+            visited.Add(leaf);
+
+            int maxTime = 0;
+
+            while (queue.Count > 0)
             {
-                ArgumentNullException.ThrowIfNull(root);
-                ArgumentNullException.ThrowIfNull(leaf);
+                var (node, time) = queue.Dequeue();
+                maxTime = Math.Max(maxTime, time);
 
-                var nodeMap = TreeUtils.BuildNodeMap(root);
+                if (!nodeMap.TryGetValue(node, out var neighbors))
+                    continue;
 
-                var queue = new Queue<(BinaryTree<T> Node, int Time)>();
-                var visited = new HashSet<BinaryTree<T>>();
-
-                queue.Enqueue((leaf, 0));
-                visited.Add(leaf);
-
-                int maxTime = 0;
-
-                while (queue.Count > 0)
+                foreach (var neighbor in neighbors)
                 {
-                    var (node, time) = queue.Dequeue();
-                    maxTime = Math.Max(maxTime, time);
-
-                    if (!nodeMap.TryGetValue(node, out var neighbors))
+                    if (neighbor == null || visited.Contains(neighbor))
                         continue;
 
-                    foreach (var neighbor in neighbors)
-                    {
-                        if (neighbor == null || visited.Contains(neighbor))
-                            continue;
-
-                        visited.Add(neighbor);
-                        queue.Enqueue((neighbor, time + 1));
-                    }
+                    visited.Add(neighbor);
+                    queue.Enqueue((neighbor, time + 1));
                 }
-
-                return maxTime;
             }
+
+            return maxTime;
         }
     }
 }
