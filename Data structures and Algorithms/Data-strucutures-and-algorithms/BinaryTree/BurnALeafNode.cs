@@ -24,16 +24,22 @@ namespace Data_strucutures_and_algorithms.BinaryTree
             private IEnumerable<BinaryTree<T>> GetUnvisitedNeighbors(BinaryTree<T> node, HashSet<BinaryTree<T>> visited)
             {
                 if (node.Left is not null && !visited.Contains(node.Left))
+                {
                     yield return node.Left;
+                }
 
                 if (node.Right is not null && !visited.Contains(node.Right))
+                {
                     yield return node.Right;
+                }
 
                 if (_parentMap.TryGetValue(node, out var parent) && !visited.Contains(parent))
+                {
                     yield return parent;
+                }
             }
 
-            public int BurnALeafNodeFunc(BinaryTree<T> root, BinaryTree<T> leaf)
+            public int BurnALeafNodeTime(BinaryTree<T> root, BinaryTree<T> leaf)
             {
                 ArgumentNullException.ThrowIfNull(root, nameof(root));
                 ArgumentNullException.ThrowIfNull(leaf, nameof(leaf));
