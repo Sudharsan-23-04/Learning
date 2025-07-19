@@ -43,10 +43,5 @@ namespace Data_strucutures_and_algorithms.BinaryTree
 
             return result;
         }
-        public class DistanceKProblem<T>
-        {
-            
-        }
-
     }
 }
