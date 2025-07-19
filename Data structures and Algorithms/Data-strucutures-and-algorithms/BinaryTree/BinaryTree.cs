@@ -39,5 +39,18 @@ namespace Data_strucutures_and_algorithms.BinaryTree
             (Right, Left) = (Left, Right);
         }
 
+        public void SetRightChild(BinaryTree<T>? node)
+        {
+            ArgumentNullException.ThrowIfNull(node, nameof(node));
+
+            Right = node;
+        }
+
+        public void SetLeftChild(BinaryTree<T>? node)
+        {
+            ArgumentNullException.ThrowIfNull(node, nameof(node));
+
+            Left = node;
+        }
     }
 }

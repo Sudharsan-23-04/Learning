@@ -4,55 +4,73 @@ namespace Data_strucutures_and_algorithms.BinaryTree
 {
     public partial class BinaryTreeProblem
     {
-        public static List<List<T>> ZigZagTraversal<T>(BinaryTree<T> root)
+        public static List<List<T>> ZigZagTraversal<T>(BinaryTree<T>? root)
         {
-            if(root is null)
+            var result = new List<List<T>>();
+            if (root is null)
+                return result;
+
+            Stack<BinaryTree<T>> s1 = new(); // Left to Right
+            Stack<BinaryTree<T>> s2 = new(); // Right to Left
+
+            s1.Push(root);
+
+            while (s1.Count > 0 || s2.Count > 0)
             {
-                return [];
-            }
+                var level = new List<T>();
 
-            Queue<BinaryTree<T>> queue = new();
-
-            List<List<T>> result = [];
-
-            int curLevel = 1;
-
-            queue.Enqueue(root);
-
-            while (!queue.IsEmpty())
-            {
-                var count = queue.Count;
-
-                var curResult = new List<T>();
-
-                for(int i = 0; i < count; i += 1)
+                // Process s1: Left → Right
+                while (s1.Count > 0)
                 {
-                    var cur = queue.Dequeue();
+                    var node = s1.Pop();
+                    level.Add(node.Value);
 
-                    curResult.Add(cur.Value);
-
-                    if(cur.Left is not null)
+                    // Push children: left first, then right (reversed in stack)
+                    if (node.Left is not null)
                     {
-                        queue.Enqueue(cur.Left);
+                        s2.Push(node.Left);
                     }
 
-                    if(cur.Right is not null)
+                    if (node.Right is not null)
                     {
-                        queue.Enqueue(cur.Right);
+                        s2.Push(node.Right);
                     }
                 }
 
-                if(curLevel % 2 == 0)
+                if (level.Count > 0)
                 {
-                    curResult.Reverse();
+                    result.Add(level);
                 }
 
-                result.Add(curResult);
+                level = [];
 
-                curLevel++;
+                // Process s2: Right → Left
+                while (s2.Count > 0)
+                {
+                    var node = s2.Pop();
+                    level.Add(node.Value);
+
+                    // Push children: right first, then left (reversed in stack)
+                    if (node.Right is not null)
+                    {
+                        s1.Push(node.Right);
+                    }
+
+                    if (node.Left is not null)
+                    {
+                        s1.Push(node.Left);
+                    }
+                }
+
+                if (level.Count > 0)
+                {
+                    result.Add(level);
+                }
             }
 
             return result;
         }
+
+
     }
 }
