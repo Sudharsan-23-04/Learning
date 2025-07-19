@@ -2,7 +2,7 @@
 {
     public partial class BinaryTreeProblem
     {
-        public static void PrintKDistanceNodeFromRoot<T>(BinaryTree<T> root, int distance)
+        public static void PrintKDistanceNodeFromRoot<T>(BinaryTree<T>? root, int distance)
         {
             if(root is null || distance < 0)
             {

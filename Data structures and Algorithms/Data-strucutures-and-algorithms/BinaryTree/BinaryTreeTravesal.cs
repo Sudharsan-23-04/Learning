@@ -4,7 +4,7 @@ namespace Data_strucutures_and_algorithms.BinaryTree
 {
     public class BinaryTreeTraversal<T>
     {
-        public void InOrderTravesal(BinaryTree<T> root)
+        public void InOrderTravesal(BinaryTree<T>? root)
         {
             if(root is null)
             {
@@ -18,7 +18,7 @@ namespace Data_strucutures_and_algorithms.BinaryTree
             InOrderTravesal(root.Right);
         }
 
-        public void PreOrderTravesal(BinaryTree<T> root)
+        public void PreOrderTravesal(BinaryTree<T>? root)
         {
             if (root is null)
             {
@@ -31,7 +31,7 @@ namespace Data_strucutures_and_algorithms.BinaryTree
             InOrderTravesal(root.Right);
         }
 
-        public void PostOrderTravesal(BinaryTree<T> root)
+        public void PostOrderTravesal(BinaryTree<T>? root)
         {
             if (root is null)
             {
@@ -45,7 +45,7 @@ namespace Data_strucutures_and_algorithms.BinaryTree
             Console.WriteLine(root.Value);
         }
 
-        public void LevelOrderTravesal(BinaryTree<T> root)
+        public void LevelOrderTravesal(BinaryTree<T>? root)
         {
             if(root is null)
             {
@@ -74,7 +74,7 @@ namespace Data_strucutures_and_algorithms.BinaryTree
             }
         }
 
-        public void LevelOrderTravesalLineByLine(BinaryTree<T> root)
+        public void LevelOrderTravesalLineByLine(BinaryTree<T>? root)
         {
             if (root is null)
             {

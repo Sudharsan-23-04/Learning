@@ -8,7 +8,7 @@ namespace Data_strucutures_and_algorithms.BinaryTree
         {
             private readonly Dictionary<BinaryTree<T>, BinaryTree<T>> _parentMap = [];
 
-            public void BuildParentMap(BinaryTree<T> node, BinaryTree<T>? parent)
+            public void BuildParentMap(BinaryTree<T>? node, BinaryTree<T>? parent)
             {
                 if (node is null)
                 {
