@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Data_strucutures_and_algorithms.BinaryTree
+﻿namespace Data_strucutures_and_algorithms.BinaryTree
 {
     public static class TreeUtils
     {
