@@ -2,7 +2,7 @@
 {
     public partial class BinaryTreeProblem
     {
-        public int GetSize<T>(BinaryTree<T> root)
+        public int GetSize<T>(BinaryTree<T>? root)
         {
             if(root is null)
             {
